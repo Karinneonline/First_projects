@@ -1,4 +1,7 @@
+# list of products
 produtos = {123: "Camisa estampada", 124: "Camisa social manga longa", 125: "Calca jeans"}
+
+# list of sales
 vendas = [(123, 3, 25.55), (124, 2, 79.99), (125, 1, 99.99)]
 
 head_cupom = """
@@ -13,6 +16,9 @@ Item    Codigo  Descricao
 print(head_cupom)
 count = 0
 vl_tot = 0
+
+# loop for with the sales and the products with the cost
+
 for i in range(len(vendas)):
     count += 1
     produto = vendas[i][0]
@@ -29,6 +35,7 @@ for i in range(len(vendas)):
     print ("=", float(qtd * vl_unit))
     print("\n")
 
+# finishes with the total cost
 print ("-" * 25)
 print ("TOTAL R$       ", end = "")
 print (vl_tot)
