@@ -32,12 +32,7 @@ def card_brand():
 def validate_card():
     global card_number
     count = 0
-    # This loop inverts the number sequence
-    for i in card_number:
-        global numbers
-        card_number2.insert(0,i)
-        count +=1
-    count = 0
+    card_number2 = reversed(card_number)
     # This loop separates in 2 lists
     for i in card_number2:
         if count %2 == 0:
