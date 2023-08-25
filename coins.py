@@ -1,3 +1,7 @@
+# Count the coins necessary for a specific value and specifies the coins 
+# The list coin contains the type of coins (25, 10, 5 and 1 cents)
+
+
 count = 0
 coins = []
 
