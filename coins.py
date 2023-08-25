@@ -1,15 +1,14 @@
 # Count the coins necessary for a specific value and specifies the coins 
 # The list coin contains the type of coins (25, 10, 5 and 1 cents)
 
-
 count = 0
 coins = []
 
+# creates a list with the type of coins
+coin = [25, 10, 5, 1]
+
 # Enter value
 amount = float(input("Enter the amount (U$): "))*100
-
-# creates a list with the coins
-coin = [25, 10, 5, 1]
 
 # function to specify coins
 def val_coin():
