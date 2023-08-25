@@ -1,4 +1,4 @@
-# Takes a credit card number and returns it's American Express, Mastercard or Visa
+# Takes a credit card number and returns if it's American Express, Mastercard or Visa
 # Also checks the number with the Luhn's Algorithm
 
 # Specifications for each brand
