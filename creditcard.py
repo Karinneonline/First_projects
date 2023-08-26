@@ -1,4 +1,4 @@
-# Takes a credit card number and returns if it's American Express, Mastercard or Visa
+# Takes a credit card number and returns it's American Express, Mastercard or Visa
 # Also checks the number with the Luhn's Algorithm
 
 # Specifications for each brand
@@ -14,9 +14,7 @@ card_number = input("Enter card number to check if it's valid (only numbers, no 
 # Checks users entry
 def valid_entry():
     global card_number
-    if card_number.isdigit() == True:
-        validate_card()
-    else:
+    if card_number.isdigit() == False:
         card_number = input("Enter card number (only numbers, no spaces): ")
         valid_entry()
 
@@ -28,35 +26,37 @@ def card_brand():
                 if card_number.startswith(card_init[j]):
                     print(f"{j} valid card")
 
-# Checks if it is compatible with Luhn's Algorithm
-def validate_card():
-    global card_number
-    count = 0
-    card_number2 = reversed(card_number)
-    # This loop separates in 2 lists
-    for i in card_number2:
-        if count %2 == 0:
-            numbers.append(i)
-        else:
-            global numbers_double
-            numbers_double.append(i)
-        count += 1
-    # transforms into intergers and double the specific numbers
-    numbers = list(map(lambda x: int(x), numbers))
-    numbers_double = list(map(lambda x: int(x) * 2, numbers_double))
-    # turns to string again to separe 2 digits numbers before sum
-    for i in numbers_double:
-        numbers_double = list(map(lambda x: str(x), numbers_double))
-    numbers_double = "".join(numbers_double)
-    # turns to intergers again to do the final sum
-    for i in numbers_double:
-        numbers_double = list(map(lambda x: int(x), numbers_double))
-    final_number = sum(numbers) + sum(numbers_double)
-
-    # Checks if the sum ends with zero and validate the card number with the specific brandb
-    if final_number%10 == 0:
-        card_brand()
-    else:
-        print("Invalid card")
-
 valid_entry()
+
+# Checks if it is compatible with Luhn's Algorithm
+count = 0
+card_number2 = reversed(card_number)
+card_number2 = list(map(lambda x: int(x), card_number2))
+
+# This loop separates in 2 lists
+for i in card_number2:
+    if count % 2 == 0:
+        numbers.append(i)
+    else:
+        numbers_double.append(i)
+    count += 1
+
+# double numbers before sum
+numbers_double = list(map(lambda x: (x) * 2, numbers_double))
+
+# turns to string again to separe 2 digits numbers before sum
+for i in numbers_double:
+    numbers_double = list(map(lambda x: str(x), numbers_double))
+    numbers_double = "".join(numbers_double)
+
+# turns to intergers again to do the final sum
+for i in numbers_double:
+    numbers_double = list(map(lambda x: int(x), numbers_double))
+final_number = sum(numbers) + sum(numbers_double)
+
+# Checks if the sum ends with zero and validate the card number with the specific brandb
+if final_number % 10 == 0:
+    card_brand()
+else:
+    print("Invalid card")
+
